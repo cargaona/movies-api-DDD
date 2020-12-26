@@ -1,12 +1,14 @@
 package json
 
 import (
-	"encoding/json"
 	"github.com/cargaona/movies-api-DDD/pkg/domain/adding"
 	"github.com/cargaona/movies-api-DDD/pkg/domain/deleting"
 	"github.com/cargaona/movies-api-DDD/pkg/domain/listing"
+
 	"github.com/cargaona/movies-api-DDD/pkg/storage"
 	"github.com/nanobox-io/golang-scribble"
+
+	"encoding/json"
 	"github.com/pkg/errors"
 	"log"
 	"path"
@@ -86,7 +88,7 @@ func (s *Storage) DeleteMovie(m deleting.Movie) error {
 			if err := s.db.Delete("movies", movie.ID); err != nil {
 				return err
 			}
-			return nil	
+			return nil
 		}
 	}
 	return errors.New("")
