@@ -2,9 +2,9 @@ package json
 
 import (
 	"encoding/json"
-	"github.com/cargaona/movies-api-DDD/pkg/adding"
-	"github.com/cargaona/movies-api-DDD/pkg/deleting"
-	"github.com/cargaona/movies-api-DDD/pkg/listing"
+	"github.com/cargaona/movies-api-DDD/pkg/domain/adding"
+	"github.com/cargaona/movies-api-DDD/pkg/domain/deleting"
+	"github.com/cargaona/movies-api-DDD/pkg/domain/listing"
 	"github.com/cargaona/movies-api-DDD/pkg/storage"
 	"github.com/nanobox-io/golang-scribble"
 	"github.com/pkg/errors"
