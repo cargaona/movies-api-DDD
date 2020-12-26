@@ -6,7 +6,6 @@ type Service interface {
 
 type Repository interface {
 	AddMovie(Movie) error
-//	GetAllMovies() []listing.Movie
 }
 
 type service struct {
@@ -17,9 +16,7 @@ func NewService(r Repository) Service {
 	return &service{r}
 }
 
-func (s *service) AddMovie(m Movie) error{
+func (s *service) AddMovie(m Movie) error {
 	//Some validation must be done here
-	s.r.AddMovie(m)
-	return nil
+	return s.r.AddMovie(m)
 }
-

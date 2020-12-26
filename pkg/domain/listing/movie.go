@@ -10,4 +10,3 @@ type director struct {
 	Name     string
 	LastName string
 }
-

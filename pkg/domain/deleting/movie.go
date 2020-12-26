@@ -1,5 +1,5 @@
 package deleting
 
 type Movie struct {
-	Name     string
+	Name string
 }
