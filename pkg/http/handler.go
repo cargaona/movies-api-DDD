@@ -37,14 +37,19 @@ func addMovie(s adding.Service) func(w http.ResponseWriter, r *http.Request, _ h
 		decoder := json.NewDecoder(r.Body)
 
 		var newMovie adding.Movie
-		err := decoder.Decode(&newMovie)
-		if err != nil {
-			http.Error(w, err.Error(), http.StatusBadRequest)
+		errorDecoding := decoder.Decode(&newMovie)
+		if errorDecoding != nil {
+			http.Error(w, errorDecoding.Error(), http.StatusBadRequest)
 
 			return
 		}
 
-		s.AddMovie(newMovie)
+		errorAdding := s.AddMovie(newMovie)
+		if errorAdding != nil{
+			http.Error(w, errorAdding.Error(), http.StatusInternalServerError)
+			json.NewEncoder(w).Encode("Internal Server Error")
+			return
+		}
 
 		w.Header().Set("Context-Type", "application/json")
 		json.NewEncoder(w).Encode("New Movie Added")

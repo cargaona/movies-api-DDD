@@ -1,12 +1,13 @@
 package listing
 
 type Movie struct {
+	Id       string
 	Name     string
 	Year     int
-	Director director
+	Director Director
 }
 
-type director struct {
+type Director struct {
 	Name     string
 	LastName string
 }

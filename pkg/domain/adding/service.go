@@ -18,5 +18,9 @@ func NewService(r Repository) Service {
 
 func (s *service) AddMovie(m Movie) error {
 	//Some validation must be done here
-	return s.r.AddMovie(m)
+	err := s.r.AddMovie(m)
+	if err != nil {
+		return err
+	}
+	return nil
 }

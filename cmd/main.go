@@ -22,5 +22,5 @@ func main() {
 
 	// Create and initialize HTTP server.
 	router := rest.Handler(adder, lister, deleter)
-	log.Fatal(http.ListenAndServe(":8081", router))
+	log.Fatal(http.ListenAndServe(":8080", router))
 }
